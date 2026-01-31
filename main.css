@@ -1,0 +1,91 @@
+@font-face {
+    font-family: Kurale;
+    src: url(./Kurale/Kurale-Regular.ttf);
+}
+
+body {
+    margin: 50px;
+}
+
+button {
+    /* background: var(--accent); */
+    color: #070d19;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-family: Kurale;
+}
+
+#openAuth {
+    background-color: rgb(254, 254, 3);
+}
+
+#closeAuth {
+    width: 45px;
+}
+
+#authOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+#authModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    z-index: 1001;
+    min-width: 300px;
+}
+
+form {
+    width: 95%;
+}
+
+input {
+    border: 4px;
+    border-radius: 5px;
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+}
+
+#loginEmail,
+#regEmail,
+#nickname {
+    width: 92%;
+    padding: 10px;
+}
+
+#loginPassword,
+#regPassword,
+#regPasswordRepeat {
+    width: 77%;
+    padding: 10px;
+}
+
+.error {
+    padding: 5px;
+    color: rgba(255, 3, 3, 0.8);
+    font-size: 16px;
+    min-height: 14px;
+}
+
+.topBtn,
+.bottomBtn {
+    display: flex;
+    margin: 15px auto 15px auto;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#saveNicknameBtn,
+#cancelEditBtn,
+#editProfileBtn,
+#logoutBtn {
+    margin: 10px;
+}

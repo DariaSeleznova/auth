@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+
+    <button id="openAuth">Login</button>
+
+    <div id="userPanel" hidden>
+        <p>Hello, <span id="userNickname"></span> !</p>
+        <p id="userEmail"></p>
+
+        <button id="editProfileBtn" type="button">Edit profile</button>
+        <button id="logoutBtn" type="button">Logout</button>
+    </div>
+
+    <div id="editProfile" hidden>
+        <input id="editNicknameInput" type="text" placeholder="New nickname" />
+
+        <span id="editNicknameError" class="error"></span>
+
+        <button id="saveNicknameBtn" type="button">Save</button>
+        <button id="cancelEditBtn" type="button">Cancel</button>
+    </div>
+
+
+    <div id="authOverlay" hidden></div>
+
+    <div id="authModal" hidden>
+
+        <button type="button" id="closeAuth">✕</button>
+
+        <!-- LOGIN MODE -->
+        <form id="loginForm">
+            <h3>Login</h3>
+
+            <input type="email" id="loginEmail" placeholder="Email">
+            <div class="error" id="loginEmailError"></div>
+            <div class="password-field">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button type="button" class="toggle-password">👁</button>
+                <div class="error" id="loginPasswordError"></div>
+            </div>
+            <div class="topBtn">
+                <button type="button" id="loginBtn">Login</button>
+                <button type="button" class="cancelAuth">Cancel</button>
+            </div>
+            <div class="bottomBtn">
+                <button type="button" id="openRegister">New user</button>
+                <button id="forgotPasswordBtn" type="button" class="link">
+                    Forgot password?
+                </button>
+            </div>
+            <div id="resetPasswordBlock" hidden>
+                <input id="resetEmail" type="email" placeholder="Your email" />
+                <span id="resetEmailError" class="error"></span>
+
+                <button id="sendResetBtn" type="button">
+                    Send reset link
+                </button>
+            </div>
+
+            <div id="resetSuccessMessage" hidden class="success">
+                <p>
+                    Password reset link has been sent.<br />
+                    Please check your email and spam folder.
+                </p>
+                <button id="resetSuccessOk" type="button">OK</button>
+            </div>
+
+        </form>
+
+        <!-- REGISTER MODE -->
+        <form id="registerForm" hidden>
+            <h3>Register</h3>
+
+            <input type="email" id="regEmail" placeholder="Email">
+            <div class="error" id="regEmailError"></div>
+
+            <input type="text" id="nickname" placeholder="Nickname">
+            <div class="error" id="nicknameError"></div>
+
+            <div class="password-field">
+                <input type="password" id="regPassword" placeholder="Password">
+                <button type="button" class="toggle-password">👁</button>
+                <div class="error" id="regPasswordError"></div>
+            </div>
+
+            <div class="password-field">
+                <input type="password" id="regPasswordRepeat" placeholder="Repeat password">
+                <button type="button" class="toggle-password">👁</button>
+                <div class="error" id="regPasswordRepeatError"></div>
+            </div>
+            <div class="topBtn">
+                <button type="button" id="registerBtn">Register</button>
+                <button class="cancelAuth">Cancel</button>
+            </div>
+            <div class="bottomBtn">
+                <button type="button" id="backToLogin">Back to login</button>
+            </div>
+        </form>
+
+    </div>
+
+    <script type="module" src="./ui.js"></script>
+
+</body>
+
+</html>
