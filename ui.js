@@ -101,32 +101,32 @@ document.addEventListener("click", (e) => {
 });
 
 loginEmail.addEventListener("input", () => {
-    clearError(loginEmailError);
+    // clearError(loginEmailError);
     updateLoginButtonState();
 });
 
 loginPassword.addEventListener("input", () => {
-    clearError(loginPasswordError);
+    // clearError(loginPasswordError);
     updateLoginButtonState();
 });
 
 regEmail.addEventListener("input", () => {
-    clearError(regEmailError);
+    // clearError(regEmailError);
     updateRegisterButtonState();
 });
 
 nickname.addEventListener("input", () => {
-    clearError(nicknameError);
+    // clearError(nicknameError);
     updateRegisterButtonState();
 });
 
 regPassword.addEventListener("input", () => {
-    clearError(regPasswordError);
+    // clearError(regPasswordError);
     updateRegisterButtonState();
 });
 
 regPasswordRepeat.addEventListener("input", () => {
-    clearError(regPasswordRepeatError);
+    // clearError(regPasswordRepeatError);
     updateRegisterButtonState();
 });
 
@@ -194,10 +194,8 @@ function renderUser(user) {
 //================LOGIN FLOW=================
 onAuthChange((user) => {
     if (user) {
-        // пользователь уже залогинен (или восстановлена сессия)
         renderUser(user);
     } else {
-        // пользователь разлогинен
         clearUserUI();
     }
 });
@@ -224,24 +222,38 @@ async function handleLogin() {
 }
 
 function handleLoginError(error) {
-    switch (error.code) {
-        case "auth/user-not-found":
-            showError(loginEmailError, "Email not registered");
-            break;
 
-        case "auth/wrong-password":
-            showError(loginPasswordError, "Wrong password");
+    switch (error.code) {
+        case "auth/invalid-credential":
+            showError(
+                loginPasswordError,
+                "Invalid email or password"
+            );
             break;
 
         case "auth/invalid-email":
-            showError(loginEmailError, "Invalid email");
+            showError(
+                loginEmailError,
+                "Invalid email format"
+            );
+            break;
+
+        case "auth/network-request-failed":
+            showError(
+                loginEmailError,
+                "Network error. Try again later"
+            );
             break;
 
         default:
-            showError(loginEmailError, "Login failed");
+            showError(
+                loginEmailError,
+                "Login failed"
+            );
             console.error(error);
     }
 }
+
 
 function validateLoginEmail() {
     const email = loginEmail.value;
