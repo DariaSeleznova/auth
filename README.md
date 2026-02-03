@@ -33,11 +33,17 @@ https://dariaseleznova.github.io/auth/
 The project is intentionally split into logical layers:
 
 /src
+
 ├── ui.js # UI logic & DOM interactions
+
 ├── login.js # Login flow (Firebase Auth)
+
 ├── register.js # Registration flow
+
 ├── logout.js # Logout logic
+
 ├── validation.js # Pure validation helpers (no UI)
+
 ├── firebase.js # Firebase init & Firestore helpers
 
 
