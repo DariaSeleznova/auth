@@ -40,8 +40,6 @@ The project is intentionally split into logical layers:
 ├── validation.js # Pure validation helpers (no UI)
 ├── firebase.js # Firebase init & Firestore helpers
 
-yaml
-Копировать код
 
 ### Key principles:
 - **UI logic is separated from business logic**
